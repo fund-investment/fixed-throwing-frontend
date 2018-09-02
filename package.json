@@ -1,11 +1,11 @@
 {
   "name": "ant-design-pro",
   "version": "1.4.4",
-  "description": "An out-of-box UI solution for enterprise applications",
+  "description": "基金定投前端",
   "private": true,
   "scripts": {
     "precommit": "npm run lint-staged",
-    "start": "cross-env ESLINT=none roadhog dev",
+    "start": "cross-env ESLINT=none PORT=5000 roadhog dev",
     "start:no-proxy": "cross-env NO_PROXY=true ESLINT=none roadhog dev",
     "build": "cross-env ESLINT=none roadhog build",
     "site": "roadhog-api-doc static && gh-pages -d dist",

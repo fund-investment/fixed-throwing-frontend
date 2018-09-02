@@ -1,6 +1,14 @@
 const path = require('path');
 
 export default {
+  proxy: {
+    '/passport': {
+      target: 'http://localhost:5050/',
+    },
+    '/api/user/': {
+      target: 'http://localhost:5050/',
+    },
+  },
   entry: 'src/index.js',
   extraBabelPlugins: [['import', { libraryName: 'antd', libraryDirectory: 'es', style: true }]],
   env: {
