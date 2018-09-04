@@ -19,10 +19,8 @@ function isPromise(obj) {
  * @param { 未通过的组件 no pass components } Exception
  */
 const checkPermissions = (authority, currentAuthority, target, Exception) => {
-  // 没有判定权限.默认查看所有
-  // Retirement authority, return target;
   if (!authority) {
-    return target;
+    return Exception; // FIXME Changed by yxz
   }
   // 数组处理
   if (Array.isArray(authority)) {
@@ -82,8 +80,7 @@ const checkPermissions = (authority, currentAuthority, target, Exception) => {
 
 export { checkPermissions };
 
-const check = (authority, target, Exception) => {
-  return checkPermissions(authority, CURRENT, target, Exception);
-};
+const check = (authority, target, Exception) =>
+  checkPermissions(authority, CURRENT, target, Exception);
 
 export default check;
