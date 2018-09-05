@@ -3,6 +3,7 @@ export default [
   {
     path: '/user',
     component: '../layouts/UserLayout',
+    Routes: ['src/pages/UserLayoutAuthorized'],
     routes: [
       { path: '/user', redirect: '/user/login' },
       { path: '/user/login', component: './User/Login' },

@@ -1,7 +1,6 @@
 import { routerRedux } from 'dva/router';
 import { stringify } from 'qs';
-import { fakeAccountLogin, getFakeCaptcha } from '@/services/api';
-import { queryAuth } from '@/services/user';
+import { queryAuth, login, logout } from '@/services/user';
 import { setAuthority } from '@/utils/authority';
 import { getPageQuery } from '@/utils/utils';
 import { reloadAuthorized } from '@/utils/Authorized';
@@ -15,7 +14,7 @@ export default {
 
   effects: {
     *login({ payload }, { call, put }) {
-      const response = yield call(fakeAccountLogin, payload);
+      const response = yield call(login, payload);
       yield put({
         type: 'changeLoginStatus',
         payload: response,
@@ -46,25 +45,28 @@ export default {
       yield call(getFakeCaptcha, payload);
     },
 
-    *logout(_, { put }) {
-      yield put({
-        type: 'changeLoginStatus',
-        payload: {
-          status: false,
-          currentAuthority: 'guest',
-        },
-      });
-      reloadAuthorized();
-      yield put(
-        routerRedux.push({
-          pathname: '/user/login',
-          search: stringify({
-            redirect: window.location.href,
-          }),
-        })
-      );
+    *logout({ payload }, { call, put }) {
+      const response = yield call(logout, payload);
+      if (response.status === 'ok') {
+        yield put({
+          type: 'changeLoginStatus',
+          payload: {
+            status: false,
+            currentAuthority: 'guest',
+          },
+        });
+        reloadAuthorized();
+        yield put(
+          routerRedux.push({
+            pathname: '/user/login',
+            search: stringify({
+              redirect: window.location.href,
+            }),
+          })
+        );
+      }
     },
-    *getAuth(_, { call, put }){
+    *getAuth(_, { call, put }) {
       const { auth } = yield call(queryAuth);
       yield put({
         type: 'changeLoginStatus',
@@ -74,7 +76,7 @@ export default {
         },
       });
       reloadAuthorized();
-    }
+    },
   },
 
   reducers: {
@@ -93,7 +95,7 @@ export default {
       // TODO yxz
       return history.listen(({ pathname, search }) => {
         if (pathname === '/') {
-          dispatch({type:'getAuth'});
+          dispatch({ type: 'getAuth' });
         }
       });
     },

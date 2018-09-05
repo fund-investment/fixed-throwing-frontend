@@ -84,13 +84,13 @@ export default class Register extends Component {
     form.validateFields({ force: true }, (err, values) => {
       if (!err) {
         const { prefix } = this.state;
-        dispatch({
-          type: 'register/submit',
-          payload: {
-            ...values,
-            prefix,
-          },
-        });
+        // dispatch({
+        //   type: 'register/submit',
+        //   payload: {
+        //     ...values,
+        //     prefix,
+        //   },
+        // });
       }
     });
   };
@@ -272,16 +272,17 @@ export default class Register extends Component {
           </FormItem>
           <FormItem>
             <Button
+              disabled
               size="large"
               loading={submitting}
               className={styles.submit}
               type="primary"
               htmlType="submit"
             >
-              注册
+              注册 (已关闭)
             </Button>
             <Link className={styles.login} to="/User/Login">
-              使用已有账户登录
+              使用其他登录方式
             </Link>
           </FormItem>
         </Form>

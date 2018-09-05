@@ -11,3 +11,17 @@ export async function queryCurrent() {
 export async function queryAuth() {
   return request('/api/user/get_auth');
 }
+
+export async function login(params) {
+  return request('/api/user/login', {
+    method: 'POST',
+    body: params,
+  });
+}
+
+export async function logout(params) {
+  return request('/api/user/logout', {
+    method: 'POST',
+    body: params,
+  });
+}

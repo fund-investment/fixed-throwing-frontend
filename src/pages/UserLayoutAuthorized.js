@@ -1,20 +1,14 @@
 import React from 'react';
-import RenderAuthorized from '@/components/Authorized';
 import { formatMessage } from 'umi/locale';
 import Redirect from 'umi/redirect';
 import { connect } from 'dva';
 import { getAuthority } from '../utils/authority';
 
-const Authorized = RenderAuthorized(['admin', 'member']);
-
 const Auth = ({ children }) => {
-  const noMatch = <Redirect to="/user/login" />;
-
-  return (
-    <Authorized authority={getAuthority()} noMatch={noMatch}>
-      {children}
-    </Authorized>
-  );
+  if (['member', 'admin'].includes(getAuthority())) {
+    return <Redirect to="/" />;
+  }
+  return children;
 };
 
 export default connect(({ login }) => ({
