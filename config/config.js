@@ -8,10 +8,10 @@ export default {
   // add for transfer to umi
   proxy: {
     '/passport': {
-      target: 'http://localhost:5050/',
+      target: 'http://127.0.0.1:5050/',
     },
     '/api/user/': {
-      target: 'http://localhost:5050/',
+      target: 'http://127.0.0.1:5050/',
     },
   },
   plugins: [
