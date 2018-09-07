@@ -13,6 +13,10 @@ export default {
     '/api/user/': {
       target: 'http://127.0.0.1:5050/',
     },
+    '/f10/F10DataApi.aspx': {
+      target: 'http://fund.eastmoney.com/f10/F10DataApi.aspx',
+      changeOrigin: true,
+    },
   },
   plugins: [
     [

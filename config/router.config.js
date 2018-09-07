@@ -23,7 +23,13 @@ export default [
         path: '/dashboard',
         name: 'dashboard',
         icon: 'dashboard',
+        authority: ['god', 'member'],
         routes: [
+          {
+            path: '/dashboard/strategy',
+            name: 'strategy',
+            component: './Dashboard/Strategy',
+          },
           {
             path: '/dashboard/analysis',
             name: 'analysis',
@@ -33,6 +39,7 @@ export default [
             path: '/dashboard/monitor',
             name: 'monitor',
             component: './Dashboard/Monitor',
+            authority: ['god'],
           },
           {
             path: '/dashboard/workplace',
@@ -46,7 +53,7 @@ export default [
         path: '/form',
         icon: 'form',
         name: 'form',
-        authority: ['god'], // 配置准入权限，可以配置多个角色
+        authority: ['god'],
         routes: [
           {
             path: '/form/basic-form',
@@ -93,7 +100,7 @@ export default [
         path: '/list',
         icon: 'table',
         name: 'list',
-        authority: ['god'], // 配置准入权限，可以配置多个角色
+        authority: ['god'],
         routes: [
           {
             path: '/list/table-list',
@@ -114,6 +121,7 @@ export default [
             path: '/list/search',
             name: 'searchlist',
             component: './List/List',
+            authority: ['god'],
             routes: [
               {
                 path: '/list/search/articles',
@@ -138,7 +146,7 @@ export default [
         path: '/profile',
         name: 'profile',
         icon: 'profile',
-        authority: ['god'], // 配置准入权限，可以配置多个角色
+        authority: ['god'],
         routes: [
           // profile
           {
@@ -157,6 +165,7 @@ export default [
         name: 'result',
         icon: 'check-circle-o',
         path: '/result',
+        authority: ['god'],
         routes: [
           // result
           {
@@ -171,6 +180,7 @@ export default [
         name: 'exception',
         icon: 'warning',
         path: '/exception',
+        authority: ['god'],
         routes: [
           // exception
           {
@@ -200,6 +210,7 @@ export default [
         name: 'account',
         icon: 'user',
         path: '/account',
+        authority: ['god'],
         routes: [
           {
             path: '/account/center',
@@ -228,6 +239,7 @@ export default [
             path: '/account/settings',
             name: 'settings',
             component: './Account/Settings/Info',
+            authority: ['god'],
             routes: [
               {
                 path: '/account/settings',

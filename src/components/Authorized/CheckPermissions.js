@@ -20,7 +20,7 @@ function isPromise(obj) {
  */
 const checkPermissions = (authority, currentAuthority, target, Exception) => {
   if (!authority) {
-    return Exception; // FIXME Changed by yxz
+    return Exception; // FIXME 权限判定方式更改Changed by yxz
   }
   // 数组处理
   if (Array.isArray(authority)) {

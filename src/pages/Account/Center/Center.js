@@ -140,39 +140,39 @@ export default class Center extends PureComponent {
                       <i className={styles.group} />
                       {currentUser.group}
                     </p>
-                    <p>
-                      <i className={styles.address} />
-                      {currentUser.geographic.province.label}
-                      {currentUser.geographic.city.label}
-                    </p>
+                    {/*<p>*/}
+                    {/*<i className={styles.address} />*/}
+                    {/*{currentUser.geographic.province.label}*/}
+                    {/*{currentUser.geographic.city.label}*/}
+                    {/*</p>*/}
                   </div>
-                  <Divider dashed />
-                  <div className={styles.tags}>
-                    <div className={styles.tagsTitle}>标签</div>
-                    {currentUser.tags.concat(newTags).map(item => (
-                      <Tag key={item.key}>{item.label}</Tag>
-                    ))}
-                    {inputVisible && (
-                      <Input
-                        ref={this.saveInputRef}
-                        type="text"
-                        size="small"
-                        style={{ width: 78 }}
-                        value={inputValue}
-                        onChange={this.handleInputChange}
-                        onBlur={this.handleInputConfirm}
-                        onPressEnter={this.handleInputConfirm}
-                      />
-                    )}
-                    {!inputVisible && (
-                      <Tag
-                        onClick={this.showInput}
-                        style={{ background: '#fff', borderStyle: 'dashed' }}
-                      >
-                        <Icon type="plus" />
-                      </Tag>
-                    )}
-                  </div>
+                  {/*<Divider dashed />*/}
+                  {/*<div className={styles.tags}>*/}
+                  {/*<div className={styles.tagsTitle}>标签</div>*/}
+                  {/*{currentUser.tags.concat(newTags).map(item => (*/}
+                  {/*<Tag key={item.key}>{item.label}</Tag>*/}
+                  {/*))}*/}
+                  {/*{inputVisible && (*/}
+                  {/*<Input*/}
+                  {/*ref={this.saveInputRef}*/}
+                  {/*type="text"*/}
+                  {/*size="small"*/}
+                  {/*style={{ width: 78 }}*/}
+                  {/*value={inputValue}*/}
+                  {/*onChange={this.handleInputChange}*/}
+                  {/*onBlur={this.handleInputConfirm}*/}
+                  {/*onPressEnter={this.handleInputConfirm}*/}
+                  {/*/>*/}
+                  {/*)}*/}
+                  {/*{!inputVisible && (*/}
+                  {/*<Tag*/}
+                  {/*onClick={this.showInput}*/}
+                  {/*style={{ background: '#fff', borderStyle: 'dashed' }}*/}
+                  {/*>*/}
+                  {/*<Icon type="plus" />*/}
+                  {/*</Tag>*/}
+                  {/*)}*/}
+                  {/*</div>*/}
                   <Divider style={{ marginTop: 16 }} dashed />
                   <div className={styles.team}>
                     <div className={styles.teamTitle}>团队</div>

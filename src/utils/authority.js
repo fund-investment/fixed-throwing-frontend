@@ -1,7 +1,7 @@
 // TODO 临时放在localStorage中，便于调试
 export function getAuthority() {
   let authority = localStorage.getItem('antd-pro-authority');
-  if (authority) {
+  if (authority && authority !== 'undefined') {
     authority = JSON.parse(authority);
   } else {
     authority = ['guest'];

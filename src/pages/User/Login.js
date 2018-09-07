@@ -102,7 +102,9 @@ export default class LoginPage extends Component {
               忘记密码
             </a>
           </div>
-          <Submit loading={submitting}>登录</Submit>
+          <Submit loading={submitting} disabled>
+            管理员登录
+          </Submit>
           <div className={styles.other}>
             其他登录方式
             <a href="/passport/weibo">

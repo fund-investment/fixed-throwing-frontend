@@ -19,7 +19,7 @@ const AvatarView = ({ avatar }) => (
     </div>
     <Upload fileList={[]}>
       <div className={styles.button_view}>
-        <Button icon="upload">
+        <Button icon="upload" disabled>
           <FormattedMessage id="app.settings.basic.avatar" defaultMessage="Change avatar" />
         </Button>
       </div>
@@ -99,7 +99,7 @@ class BaseView extends Component {
               })(<Input />)}
             </FormItem>
             <FormItem label={formatMessage({ id: 'app.settings.basic.nickname' })}>
-              {getFieldDecorator('name', {
+              {getFieldDecorator('displayName', {
                 rules: [
                   {
                     required: true,
@@ -171,7 +171,7 @@ class BaseView extends Component {
                 ],
               })(<PhoneView />)}
             </FormItem>
-            <Button type="primary">
+            <Button type="primary" disabled>
               <FormattedMessage
                 id="app.settings.basic.update"
                 defaultMessage="Update Information"
