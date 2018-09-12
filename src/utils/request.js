@@ -128,6 +128,8 @@ export default function request(
       if (newOptions.method === 'DELETE' || response.status === 204) {
         return response.text();
       }
+      console.log(response);
+      console.log(response.json());
       return response.json();
     })
     .catch(e => {

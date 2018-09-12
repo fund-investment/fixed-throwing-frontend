@@ -5,7 +5,7 @@ import Redirect from 'umi/redirect';
 import { connect } from 'dva';
 import { getAuthority } from '../utils/authority';
 
-const Authorized = RenderAuthorized(['admin', 'member']);
+const Authorized = RenderAuthorized(['god', 'member']);
 
 const Auth = ({ children }) => {
   const noMatch = <Redirect to="/user/login" />;

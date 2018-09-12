@@ -10,8 +10,6 @@ export async function queryFundData(fundCode) {
       per: 7300,
       sdate: '',
       date: '',
-    })}`,
-    undefined,
-    true
+    })}`
   );
 }

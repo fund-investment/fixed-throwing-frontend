@@ -5,7 +5,7 @@ import { connect } from 'dva';
 import { getAuthority } from '../utils/authority';
 
 const Auth = ({ children }) => {
-  if (['member', 'admin'].includes(getAuthority())) {
+  if (['member', 'god'].includes(getAuthority())) {
     return <Redirect to="/" />;
   }
   return children;
