@@ -2,6 +2,12 @@ import moment from 'moment';
 import React from 'react';
 import { parse, stringify } from 'qs';
 
+/* eslint no-extend-native: ["error", { "exceptions": ["String"] }] */
+/* eslint func-names: ["error", "never"] */
+String.prototype.replaceAll = function(s1, s2) {
+  return this.replace(new RegExp(s1, 'gm'), s2);
+};
+
 export function fixedZero(val) {
   return val * 1 < 10 ? `0${val}` : val;
 }

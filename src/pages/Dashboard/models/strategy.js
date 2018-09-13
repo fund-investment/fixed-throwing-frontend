@@ -86,9 +86,7 @@ export default {
       let fundData = yield select(state => state.strategy.fundDataList[fundCode]);
       if (fundData === undefined) {
         const response = yield call(queryFundData, fundCode);
-        console.log(response);
         fundData = obtainData(response.trim());
-        console.log(fundData);
         yield put({
           type: 'updateFundData',
           payload: {

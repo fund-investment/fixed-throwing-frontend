@@ -67,7 +67,8 @@ export default function request(
   url,
   options = {
     expirys: isAntdPro(),
-  }
+  },
+  needTextResult
 ) {
   /**
    * Produce fingerprints based on url and parameters
@@ -125,11 +126,10 @@ export default function request(
     .then(response => {
       // DELETE and 204 do not return data by default
       // using .json will report an error.
-      if (newOptions.method === 'DELETE' || response.status === 204) {
+      if (newOptions.method === 'DELETE' || response.status === 204 || needTextResult) {
         return response.text();
       }
-      console.log(response);
-      console.log(response.json());
+
       return response.json();
     })
     .catch(e => {
